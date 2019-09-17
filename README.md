@@ -41,7 +41,16 @@ Check this [Youtube video](https://www.youtube.com/watch?v=1PT1QhzM5Mg) for a sm
     - `ERROR` - Red on the right side of the card
         - Tap on the failed message card to see error details
         - Create a [new issue](https://github.com/akashpjames/sms-import-for-ynab/issues/new/choose) if you think it needs to be fixed.
-        
+
+### Contributing
+
+Fork/clone the repo, install project dependencies, and necessary software globally:
+
+```
+npm install
+npm install -g cordova ionic
+```
+
 ### How to debug in browser?
     npm install;
     ionic serve;
