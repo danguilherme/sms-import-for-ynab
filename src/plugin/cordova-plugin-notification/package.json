@@ -1,6 +1,6 @@
 {
     "version": "0.0.1",
-    "name": "net.coconauts.notification-listener",
+    "name": "cordova-plugin-notification",
     "cordova_name": "Notification-listener",
     "description": "Notification listener Plugin for Android",
     "license": "Apache 2.0",

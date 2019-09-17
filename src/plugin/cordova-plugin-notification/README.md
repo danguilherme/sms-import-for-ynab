@@ -1,4 +1,5 @@
 # NotificationListenerService plugin for Cordova
+> Based on https://github.com/coconauts/NotificationListener-cordova
 
 This is an implementation of the
 [NotificationListenerService in Android](https://developer.android.com/reference/android/service/notification/NotificationListenerService.html)
