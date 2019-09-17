@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { CommonService } from './services/common.service';
+import { NotificationService } from './services/notification.service';
 import { NavController, LoadingController, AlertController, ActionSheetController} from '@ionic/angular';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
@@ -27,6 +28,7 @@ import { AppComponent } from './app.component';
         AppRoutingModule],
     providers: [
         CommonService,
+        NotificationService,
         NavController,
         LoadingController,
         AlertController,

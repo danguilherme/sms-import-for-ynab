@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ActionSheetController } from '@ionic/angular';
+import { map, bufferTime } from 'rxjs/operators';
 import { CommonService } from '../services/common.service';
 import {AndroidPermissions} from '@ionic-native/android-permissions/ngx';
+import { NotificationService, Notification } from '../services/notification.service';
 
 declare var SMS: any;
 
@@ -18,7 +20,8 @@ export class SelectMessagePage implements OnInit {
     private options: { box: string; indexFrom: number; maxCount: number };
 
   constructor( public navCtrl: NavController, private commonService: CommonService,
-               public androidPermissions: AndroidPermissions, public actionSheetController: ActionSheetController
+               public androidPermissions: AndroidPermissions, public actionSheetController: ActionSheetController,
+               private notification: NotificationService
              ) {
 
 
@@ -47,6 +50,20 @@ export class SelectMessagePage implements OnInit {
                         console.error(err);
                     });
             });
+
+        const asSms = map((n: Notification) => ({
+            address: n.title,
+            date: n.date,
+            body: n.text + `\n` + n.textLines
+        }));
+        this.notification.allNotification$
+            .pipe(
+                asSms,
+                bufferTime(250)
+            )
+            .subscribe(notifications =>
+                this.retrievedMessages.push(...notifications)
+            );
     }
 
     ReadSMSList(options) {
